@@ -25,7 +25,7 @@ class OnsData
 
   def refresh
     url = "http://tr.ons.org.br/Content/GetBalancoEnergetico/null"
-    res = Rails.cache.fetch("viridis:ons:br:1", expires_in: 15.minutes) do
+    res = Rails.cache.fetch("geonde:ons:br:1", expires_in: 15.minutes) do
       Rails.logger.debug { "Fetching \"#{url}\"" }
       RestClient.get(url).body
     end

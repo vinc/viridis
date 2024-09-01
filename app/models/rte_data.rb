@@ -42,7 +42,7 @@ class RteData
       "end_date" => t2.rfc3339,
     }
     url = "https://digital.iservices.rte-france.com/open_api/actual_generation/v1/generation_mix_15min_time_scale?#{params.to_query}"
-    res = Rails.cache.fetch("viridis:rte:fr:1", expires_in: 15.minutes) do
+    res = Rails.cache.fetch("geonde:rte:fr:1", expires_in: 15.minutes) do
       Rails.logger.debug { "Fetching \"#{url}\"" }
       RestClient.get(url, { "Authorization" => "Bearer #{token}" }).body
     end

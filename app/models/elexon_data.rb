@@ -42,7 +42,7 @@ class ElexonData
 
   def refresh
     url = "https://data.elexon.co.uk/bmrs/api/v1/generation/outturn/FUELINSTHHCUR?format=json"
-    res = Rails.cache.fetch("viridis:elexon:uk:1", expires_in: 30.minutes) do
+    res = Rails.cache.fetch("geonde:elexon:uk:1", expires_in: 30.minutes) do
       Rails.logger.debug { "Fetching \"#{url}\"" }
       RestClient.get(url).body
     end

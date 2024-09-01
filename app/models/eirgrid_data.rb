@@ -13,7 +13,7 @@ class EirgridData
     fmt = "%d-%h-%Y+%H:%M"
     api = "https://www.smartgriddashboard.com/DashboardService.svc/data"
     url = "#{api}?area=co2intensity&region=ALL&datefrom=#{t1.strftime(fmt)}&dateto=#{t2.strftime(fmt)}"
-    res = Rails.cache.fetch("viridis:eirgrid:ei:1", expires_in: 15.minutes) do
+    res = Rails.cache.fetch("geonde:eirgrid:ei:1", expires_in: 15.minutes) do
       Rails.logger.debug { "Fetching \"#{url}\"" }
       RestClient.get(url).body
     end

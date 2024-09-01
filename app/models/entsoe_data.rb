@@ -108,7 +108,7 @@ class EntsoeData
       "securityToken" => ENV.fetch("ENTSOE_TOKEN", nil),
     }
     url = "https://web-api.tp.entsoe.eu/api?#{params.to_query}"
-    res = Rails.cache.fetch("viridis:entsoe:#{@country}:2", expires_in: 30.minutes) do
+    res = Rails.cache.fetch("geonde:entsoe:#{@country}:2", expires_in: 30.minutes) do
       Rails.logger.debug { "Fetching \"#{url}\"" }
       RestClient.get(url).body
     end
